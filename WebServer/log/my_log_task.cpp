@@ -7,7 +7,7 @@ my_log_task<T>::my_log_task(){
     log_task_max_size = 1000;
     log_task_front = 0;
     log_task_back = 0;
-    task_queue.reserve(log_task_max_size);
+    task_queue.resize(log_task_max_size);
 }
 
 
@@ -16,7 +16,7 @@ my_log_task<T>::my_log_task(int max_size){
     log_task_max_size = max_size;
     log_task_front = 0;
     log_task_back = 0;
-    task_queue.reserve(log_task_max_size);
+    task_queue.resize(log_task_max_size);
 }
 
 template<typename T>

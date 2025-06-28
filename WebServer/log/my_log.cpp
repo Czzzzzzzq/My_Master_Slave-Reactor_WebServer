@@ -10,8 +10,9 @@ my_Log::my_Log()
 
 my_Log::~my_Log()
 {
-    delete log_task_queue;
     flush();
+    delete log_task_queue;
+    fclose(file_ptr);
 }
 
 my_Log *my_Log::get_instance()

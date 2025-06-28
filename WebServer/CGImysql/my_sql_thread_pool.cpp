@@ -8,6 +8,7 @@ my_sql_thread_pool::my_sql_thread_pool()
 
 my_sql_thread_pool::~my_sql_thread_pool()
 {
+    
     destroy_pool();
 }
 
@@ -79,7 +80,7 @@ void my_sql_thread_pool::destroy_pool(){
     for(auto conn: *my_sql_thread_poll){
         mysql_close(conn);
     }
-    
     my_sql_thread_poll_MAX_num = 0;
     my_sql_thread_poll->clear();
+    mysql_library_end();
 }

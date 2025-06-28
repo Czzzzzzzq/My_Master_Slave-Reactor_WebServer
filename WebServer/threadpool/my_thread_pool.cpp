@@ -54,6 +54,7 @@ void my_thread_pool<T>::run()
             connectionRAII mysqlcon(&worker.mysql, my_sql_pool);
             worker.process_http_task(request);
         }
+        my_work_task_list->push_write_task(request);
         worker.reset();
     }
 }
